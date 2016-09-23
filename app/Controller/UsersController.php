@@ -80,6 +80,11 @@ class UsersController extends AppController {
             $options = array('conditions' => array('User.id' => $userId));
             $this->request->data = $this->User->find('first', $options);
         }
+        public function user_list(){
+             $fields = array('User.id', 'User.username', 'User.email');
+             $users= $this->User->get($fields);
+             $this->set(compact('users'));
+        }
     }
 }
 ?>

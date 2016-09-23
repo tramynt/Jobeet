@@ -82,6 +82,13 @@ class User extends AppModel // Tại sao phải extends AppModel
         }
         return true;
     }
+       public function get( $fields = array()) {
+        return $this->find('all', array(
+            'contain' => array('User'),
+            'fields' => $fields
+        ));
+    }
+
 
 }
 
